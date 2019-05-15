@@ -1,4 +1,4 @@
-# FaceSimilarity 
+### FaceSimilarity 
 
 * Data Preprocessing, Data Augmentation , Modelling and Training is explained in [IPython Notebook](https://github.com/anuj-anuj/face-similarity/blob/master/NanoNets_AnujArora.ipynb)
 
@@ -18,7 +18,7 @@
 * Face-Alignment Model and Facenet(Feature-Extraction Model) have been imported with pretrained weights. Sources are mentioned in References
 
 
-## #Refrences 
+### Refrences 
 * FaceNet: A Unified Embedding for Face Recognition and Clustering : https://arxiv.org/abs/1503.03832.
 * https://github.com/davidsandberg/facenet
 * https://github.com/sainimohit23/FaceNet-Real-Time-face-recognition
