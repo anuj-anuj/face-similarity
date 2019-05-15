@@ -46,7 +46,9 @@ from inception_blocks_v2 import *
 def get_crop(img_path):
     with tf.Graph().as_default():
         gpu_options = tf.GPUOptions(per_process_gpu_memory_fraction=1.0)
-        sess = tf.Session(config=tf.ConfigProto(gpu_options=gpu_options, log_device_placement=False))
+        config=tf.ConfigProto(gpu_options=gpu_options, log_device_placement=False)
+        config.gpu_options.allow_growth=True
+        sess = tf.Session(config=config)
         with sess.as_default():
             pnet, rnet, onet = detect_face.create_mtcnn(sess, None)
 
@@ -92,9 +94,11 @@ def main(args):
     similiarity=1-model.predict([crop1,crop2])[0][0]
     is_similar= 1 if similiarity>0.5 else 0
     
-    print('similiarity: ', similiarity, '\n Is_Similar:',is_similar)
+    print('similiarity: ', similiarity, '\nIs_Similar:',is_similar)
 
-
+    with open('results.txt','w') as f:
+        f.write('similiarity: '+ str(similiarity)+'\nIs_Similar:'+str(is_similar)+'\n')
+    print('Result written to results.txt\n')
 
 
 
